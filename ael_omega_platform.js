@@ -250,7 +250,7 @@ class AELColorEngine {
         return JSON.stringify({...base,colorStates:getStates().map(s=>({id:s.hex,hex:s.hex,rgb:s.rgb,hsl:s.hsl,science:{luminance:s.luminance,wcag:s.wcagContrast,temp:s.temperature,satClass:s.saturationClass},philosophy:s.philosophy,meta:s.meta})),stylePalette:palette||[]},null,2);
 
       case'css':{
-        let c=`/* AEL Color OS - CSS Tokens v4 */\n/* Generated: ${ts} | Seed: ${seed} */\n:root{\n`;
+        let c=`/* AEL Ω-Platform - CSS Tokens v5 */\n/* Generated: ${ts} | Seed: ${seed} */\n:root{\n`;
         getColors().forEach((hex,i)=>{c+=`  --ael-color-${i+1}:${hex};\n`});
         if(states.length)states.forEach((s,i)=>{c+=`  --ael-color-${i+1}-rgb:${s.rgb.r},${s.rgb.g},${s.rgb.b};\n  --ael-color-${i+1}-hsl:${Math.round(s.hsl.h)}deg,${Math.round(s.hsl.s)}%,${Math.round(s.hsl.l)}%;\n`});
         Object.entries(CANONICAL_COLORS).forEach(([k,v])=>{c+=`  --ael-${k}:${v};\n`});
@@ -260,7 +260,7 @@ class AELColorEngine {
       }
 
       case'scss':{
-        let c=`// AEL Color OS - SCSS Tokens v4\n// Generated: ${ts} | Seed: ${seed}\n`;
+        let c=`// AEL Ω-Platform - SCSS Tokens v5\n// Generated: ${ts} | Seed: ${seed}\n`;
         getColors().forEach((hex,i)=>{c+=`$${i===0?'ael-primary':`ael-color-${i+1}`}:${hex};\n`});
         c+=`\n$ael-colors:(${getColors().map((h,i)=>`${i+1}:${h}`).join(',')});\n`;
         c+=`\n@mixin ael-glass{background:rgba(5,12,24,0.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08)}\n`;
@@ -277,7 +277,7 @@ class AELColorEngine {
         return JSON.stringify({$metadata:{system:AEL_SIGNATURE,version:PLATFORM_VERSION,timestamp:ts},color:Object.fromEntries(getColors().map((hex,i)=>[`ael-color-${i+1}`,{value:hex,type:'color'}]))},null,2);
 
       case'figma':
-        return JSON.stringify({name:'AEL Color OS',version:PLATFORM_VERSION,colors:getColors().map((hex,i)=>({name:`ael/color-${i+1}`,value:hex,type:'COLOR'})),gradients:[{name:'ael/gradient-primary',value:`linear-gradient(135deg, ${getColors()[0]||'#0074FF'} 0%, ${getColors()[getColors().length-1]||'#6C47FF'} 100%)`,type:'GRADIENT'}]},null,2);
+        return JSON.stringify({name:'AEL Ω-Platform',version:PLATFORM_VERSION,colors:getColors().map((hex,i)=>({name:`ael/color-${i+1}`,value:hex,type:'COLOR'})),gradients:[{name:'ael/gradient-primary',value:`linear-gradient(135deg, ${getColors()[0]||'#0074FF'} 0%, ${getColors()[getColors().length-1]||'#6C47FF'} 100%)`,type:'GRADIENT'}]},null,2);
 
       case'svg':{
         const cs=getColors(),size=60;
@@ -573,9 +573,9 @@ class UIController {
     const fmts=['css','scss','json','figma','react','vue'];
     const system={};
     fmts.forEach(f=>{const c=this.engine.generateExport(f);if(c)system[f]=c});
-    system.readme='# AEL Color OS\n\nCanonical color authority for sovereign systems.\nExternal references are learning resources only.\n\n## Install\n```\nnpm install ael-color-os\n```\n\n## License\nMIT';
+    system.readme='# AEL Ω-Platform\n\nCanonical color authority for sovereign systems.\nExternal references are learning resources only.\n\n## Install\n```\nnpm install ael-omega-platform\n```\n\n## License\nMIT';
     const content=JSON.stringify(system,null,2);
-    this.engine.downloadFile(content,'ael-color-os-complete.json','application/json');
+    this.engine.downloadFile(content,'ael-omega-platform-complete.json','application/json');
     toast('Complete system downloaded');
   }
 
@@ -713,7 +713,7 @@ class UIController {
 
   // ===== FAVORITES =====
   initFavorites(){
-    const key='ael_color_os_favorites';
+    const key='ael_omega_platform_favorites';
     let favs=JSON.parse(localStorage.getItem(key))||[];
     const grid=document.getElementById('favoritesGrid');
     const render=()=>{
@@ -957,6 +957,6 @@ class UIController {
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded',()=>{
   window.AEL=new UIController();
-  console.log('%c AEL Color OS v4 — Unified Color Intelligence ','background:#0074FF;color:#fff;padding:4px 8px;border-radius:4px;font-size:14px');
+  console.log('%c AEL Ω-Platform v5 — Sovereign Omega ','background:#0074FF;color:#fff;padding:4px 8px;border-radius:4px;font-size:14px');
   console.log('Signatures: '+AEL_SIGNATURE);
 });

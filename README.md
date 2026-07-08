@@ -104,10 +104,10 @@ Color States → 13 Export Formats (JSON / CSS / SCSS / Tokens / ...)
 ## Project Structure
 
 ```
-ael-color-os/
+ael-omega-platform/
 ├── index.html                    # HTML5 7-tab interface
-├── ael_color_os.css              # All styles (glassmorphism, dark theme, modern components)
-├── ael_color_os.js               # Full sovereign engine + all merged features (~960 lines)
+├── ael_omega_platform.css        # All styles (glassmorphism, dark theme, modern components)
+├── ael_omega_platform.js         # Full sovereign engine + all merged features (~960 lines)
 ├── screenshot.svg                # Project preview image
 ├── ael-logo.svg                  # AEL brand logo
 ├── .nojekyll                     # GitHub Pages compatibility
@@ -127,8 +127,8 @@ Flat single-page architecture:
 ### Run Locally
 
 ```bash
-git clone https://github.com/aymanelmasryael/ael-color-os.git
-cd ael-color-os
+git clone https://github.com/aymanelmasryael/ael-omega-platform.git
+cd ael-omega-platform
 open index.html
 ```
 
