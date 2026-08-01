@@ -1,5 +1,8 @@
-// ===== AEL COLOR OS v4 — UNIFIED COLOR INTELLIGENCE =====
-const AEL_SIGNATURE = 'AEL_COLOR_OS_v4_2025_2026';
+(function() {
+  'use strict';
+
+  // ===== AEL COLOR OS v4 — UNIFIED COLOR INTELLIGENCE =====
+  const AEL_SIGNATURE = 'AEL_COLOR_OS_v4_2025_2026';
 const PLATFORM_VERSION = '4.0.0';
 
 // ===== HELPERS =====
@@ -958,5 +961,6 @@ class UIController {
 document.addEventListener('DOMContentLoaded',()=>{
   window.AEL=new UIController();
   console.log('%c AEL Ω-Platform v5 — Sovereign Omega ','background:#0074FF;color:#fff;padding:4px 8px;border-radius:4px;font-size:14px');
-  console.log('Signatures: '+AEL_SIGNATURE);
-});
+    console.log('Signatures: '+AEL_SIGNATURE);
+  });
+})();
